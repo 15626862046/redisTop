@@ -22,7 +22,10 @@ public class showController {
     @Autowired
     private HeroService heroService;
 
-
+    /**
+     * top方法，查询redis数据库top数据分值最多的十位
+     * @return
+     */
     @RequestMapping("/test")
     @ResponseBody
     public Object[] top() {
