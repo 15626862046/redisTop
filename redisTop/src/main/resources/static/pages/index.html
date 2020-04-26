@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table id="dataList" class="table table-bordered table-striped table- hover dataTable">
+            <thead> <tr>
+                <th class="sorting_asc">排名</th>
+                <th class="sorting_desc">英雄名</th>
+                <th class="sorting_asc sorting_asc_disabled">次数</th>
+            </thead>
+            <tbody>
+            <tr v-for="(hero,index) in heroSet">
+            <td>{{index+1}}</td>
+            <td>{{hero.value}} </td>
+            <td>{{hero.score}}</td>
+            <td class="text-center">
+            <button type="button" class="btn bg-olive btn-xs">点赞</button>
+            </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+         new Vue({
+            el: "#app",
+            data: {
+                heroSet: []
+            },
+            methods: {
+                redistop: function () {
+                    var _this = this;
+                    axios.get("/test").then(function (response) {
+                            _this.heroSet = response.data;
+                            console.log(_this.heroSet);
+                        })
+                    .catch(function (err) {console.log(err);});
+                },
+            },
+            created(){
+                    this.redistop();
+                }
+            });
+    </script>
+</body>
+</html>
