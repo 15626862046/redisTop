@@ -42,8 +42,4 @@ public class showController {
         return typedTupleSet.toArray();
     }
 
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
-    }
 }
