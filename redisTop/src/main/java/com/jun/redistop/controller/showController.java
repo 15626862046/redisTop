@@ -26,7 +26,7 @@ public class showController {
      * top方法，查询redis数据库top数据分值最多的十位
      * @return
      */
-    @RequestMapping("/test")
+    @RequestMapping("/top")
     @ResponseBody
     public Object[] top() {
         Set<ZSetOperations.TypedTuple<Hero>> typedTupleSet = heroService.redisTop();

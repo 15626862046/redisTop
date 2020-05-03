@@ -4,6 +4,7 @@ import com.jun.redistop.mapper.HeroMapper;
 import com.jun.redistop.pojo.Hero;
 import com.jun.redistop.service.HeroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class HeroServiceImpl implements HeroService {
     @Autowired
     private HeroMapper heroMapper;
     @Autowired
+    @Qualifier("redisTemplate")
     private RedisTemplate redisTemplate;
 
     @Override

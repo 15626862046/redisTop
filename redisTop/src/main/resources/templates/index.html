@@ -35,7 +35,7 @@
             methods: {
                 redistop: function () {
                     var _this = this;
-                    axios.get("/test").then(function (response) {
+                    axios.get("/top").then(function (response) {
                             _this.heroSet = response.data;
                             console.log(_this.heroSet);
                         })
